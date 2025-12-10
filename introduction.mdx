@@ -1,0 +1,106 @@
+---
+title: Introduction to Loz Turner
+description: Discover Loz Turner, a personal ADHD assistance application and dashboard tool designed for task planning, data visualization, decision making, and communication with peers and teams.
+---
+
+## Overview
+
+Loz Turner helps you manage daily tasks effectively as an ADHD assistance application. You gain a centralized dashboard for visualizing data, planning your schedule, making informed decisions, and communicating seamlessly with peers and teams. Built with intuitive tools, it transforms overwhelming to-do lists into actionable insights using charts, reminders, and collaboration features.
+
+<Callout kind="info">
+Loz Turner leverages modern web technologies for real-time updates and customizable views tailored to your workflow.
+</Callout>
+
+## Key Features
+
+Explore the core capabilities that make Loz Turner your daily productivity partner.
+
+<Columns cols={3}>
+  <Card title="Task Planning" icon="calendar" href="/docs/task-planning">
+    Break down projects into manageable steps with drag-and-drop scheduling and priority tagging.
+  </Card>
+  <Card title="Data Visualization" icon="bar-chart-3" href="/docs/visualization">
+    View progress through interactive charts, heatmaps, and timelines to spot patterns quickly.
+  </Card>
+  <Card title="Decision Tools" icon="brain" href="/docs/decision-making">
+    Use AI-driven prompts and pros/cons analyzers to make confident choices without overload.
+  </Card>
+  <Card title="Team Communication" icon="message-circle" href="/docs/communication">
+    Share updates, assign tasks, and chat directly within your dashboard for streamlined collaboration.
+  </Card>
+</Columns>
+
+## Quick Start
+
+Get up and running in minutes with these essential steps.
+
+<Steps>
+  <Step title="Sign Up" icon="user-plus">
+    Create your free account at `lozturner.com/signup` using your email or Google OAuth.
+  </Step>
+  <Step title="Set Up Dashboard" icon="layout-dashboard">
+    Customize your view by adding widgets for tasks, charts, and notifications.
+  </Step>
+  <Step title="Import Data" icon="upload">
+    Connect your calendar or task apps like Google Calendar or Todoist via API keys.
+  </Step>
+  <Step title="Start Planning" icon="check-circle">
+    Create your first daily plan and invite team members for collaboration.
+  </Step>
+</Steps>
+
+## Integration Examples
+
+Connect Loz Turner to your existing stack effortlessly.
+
+<CodeGroup tabs="JavaScript,Python">
+  ```javascript
+  // Fetch tasks from Loz Turner API
+  const response = await fetch('https://api.lozturner.com/v1/tasks', {
+    headers: {
+      'Authorization': `Bearer ${YOUR_API_KEY}`,
+      'Content-Type': 'application/json'
+    }
+  });
+  const tasks = await response.json();
+  console.log(tasks);
+  ```
+  ```python
+  # Fetch tasks using Python requests
+  import requests
+  headers = {
+      'Authorization': f'Bearer {YOUR_API_KEY}',
+      'Content-Type': 'application/json'
+  }
+  response = requests.get('https://api.lozturner.com/v1/tasks', headers=headers)
+  tasks = response.json()
+  print(tasks)
+  ```
+</CodeGroup>
+
+## Who It's For
+
+Loz Turner adapts to various roles and scenarios.
+
+<Tabs>
+  <Tab title="Freelancers" icon="freelance">
+    Manage client projects, track billable hours, and visualize income trends in one dashboard.
+  </Tab>
+  <Tab title="Teams" icon="users">
+    Coordinate sprints, share decision matrices, and communicate without switching apps.
+  </Tab>
+  <Tab title="Individuals with ADHD" icon="accessibility">
+    Use focus timers, task breakdowns, and gentle reminders to maintain momentum.
+  </Tab>
+</Tabs>
+
+<Expandable title="Advanced Use Cases" default-open="false">
+
+Discover deeper applications:
+
+- **Executive Planning**: Aggregate reports from multiple tools for high-level decision dashboards.
+- **Remote Collaboration**: Real-time updates ensure alignment across time zones.
+
+</Expandable>
+
+With Loz Turner, you reclaim control over your day, turning chaos into clarity through smart tools and visualizations. Start today and experience enhanced focus and productivity.

@@ -1,0 +1,132 @@
+---
+title: Changelog
+description: Track the evolution of Loz Turner with details on releases, updates, and improvements over time.
+---
+
+## Overview
+
+Loz Turner evolves rapidly to help you manage daily tasks, visualize dashboard data, and improve decision-making and communication. Review release notes below to see new features, bug fixes, and improvements. You stay informed on changes that enhance your productivity as a task planning manager.
+
+<Callout kind="info">
+  Enable auto-updates in your settings to receive the latest version seamlessly.
+</Callout>
+
+## Recent Releases
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+## New Features
+
+- Added real-time collaboration for shared task boards
+- Introduced ADHD-friendly focus timers with customizable breaks
+
+## Improvements
+
+- Enhanced dashboard visualizations with interactive charts
+- Optimized task prioritization algorithm for better daily planning
+
+## Bug Fixes
+
+- Fixed sync issues between peer communication logs and company calendars
+- Resolved dashboard refresh delays during high data loads
+
+```javascript
+// Example: New collaboration API usage
+const collaborate = async (taskId, userId) => {
+  const response = await fetch(`/api/tasks/${taskId}/collaborate`, {
+    method: 'POST',
+    body: JSON.stringify({ userId })
+  });
+  return response.json();
+};
+```
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+## New Features
+
+- Integrated communication hub for peer and company messaging
+- Added export options for task reports in PDF and CSV formats
+
+## Improvements
+
+- Streamlined decision-making with AI-powered task suggestions
+
+## Bug Fixes
+
+- Corrected data visualization glitches on mobile devices
+- Patched authentication errors in multi-party sharing
+
+```javascript
+// Example: Export task data
+const exportTasks = async (format = 'csv') => {
+  const url = `/api/tasks/export?format=${format}`;
+  window.open(url, '_blank');
+};
+```
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["feature", "breaking"]}>
+## New Features
+
+- Launched core dashboard for task planning and visualization
+- Built-in tools for daily task management and peer communication
+
+## Breaking Changes
+
+- Updated API endpoints from `/v0/` to `/v1/` prefix
+
+## Initial Setup
+
+Upgrade your integrations to use the new endpoints.
+</Update>
+
+## Upgrading Loz Turner
+
+Follow these steps to update to the latest version and apply changes.
+
+<Steps>
+  <Step title="Backup Data" icon="database">
+    Export your current tasks and dashboards.
+
+    ```bash
+    loz-turner export --backup tasks.json dashboards.json
+    ```
+  </Step>
+  <Step title="Install Update" icon="download">
+    <Tabs>
+      <Tab title="npm" icon="package">
+        ```bash
+        npm update loz-turner
+        ```
+      </Tab>
+      <Tab title="Docker" icon="docker">
+        ```bash
+        docker pull lozturner/app:latest
+        docker-compose up -d
+        ```
+      </Tab>
+    </Tabs>
+  </Step>
+  <Step title="Verify Changes" icon="check-circle">
+    Check the changelog above and test key features like collaboration.
+  </Step>
+</Steps>
+
+<Columns cols={2}>
+  <Card title="API Reference" icon="code" href="/docs/api">
+    Explore updated endpoints and examples.
+  </Card>
+  <Card title="Feedback" icon="message-circle" href="/feedback" target="_blank">
+    Share your thoughts on recent updates.
+  </Card>
+</Columns>
+
+## Upcoming Changes
+
+<Expandable title="Sneak Peek: v1.3.0" default-open="false">
+Expect advanced AI insights for decision-making and deeper ERP integrations. Track progress in our GitHub repository.
+</Expandable>
+
+<Callout kind="tip">
+  Subscribe to notifications for beta access to upcoming features.
+</Callout>

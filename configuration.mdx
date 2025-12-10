@@ -1,0 +1,161 @@
+---
+title: Configuration and Customization
+description: Tailor Loz Turner to your needs by configuring settings for tasks, visualizations, notifications, and communication preferences.
+---
+
+## Overview
+
+Configure Loz Turner to match your workflow. Customize dashboard layouts for better task visibility, set up notifications to stay on track, integrate communication channels for seamless collaboration, and personalize ADHD assistance features for focused productivity. Access settings from the main menu by clicking your profile icon and selecting `Settings`.
+
+<Callout kind="tip">
+  Save changes immediately after each section to apply them across web and mobile apps.
+</Callout>
+
+## Dashboard Layouts
+
+Rearrange widgets to prioritize your daily tasks and visualizations. Drag and drop panels for tasks, calendars, and charts.
+
+<Columns cols={3}>
+  <Card title="Task Widgets" icon="list" href="#task-widgets">
+    Add priority lists and due dates.
+  </Card>
+  <Card title="Charts" icon="bar-chart-3" href="#charts">
+    Customize data visualizations.
+  </Card>
+  <Card title="Calendar" icon="calendar" href="#calendar">
+    Integrate personal events.
+  </Card>
+</Columns>
+
+### Customize Widgets
+
+1. Enter `Settings > Dashboard`.
+2. Select `Add Widget`.
+3. Choose from `Tasks`, `Progress Charts`, or `Team Updates`.
+
+<Expandable title="Advanced Layout JSON" default-open="false">
+
+Export your layout as JSON for backups or sharing.
+
+<CodeGroup tabs="JSON,TypeScript">
+```json
+{
+  "layout": {
+    "rows": [
+      {
+        "widgets": [
+          { "type": "task-list", "priority": "high", "size": "full" },
+          { "type": "chart", "data": "daily-progress", "size": "half" }
+        ]
+      }
+    ]
+  }
+}
+```
+
+```typescript
+interface DashboardLayout {
+  rows: Array<{
+    widgets: Array<{
+      type: 'task-list' | 'chart' | 'calendar';
+      priority?: 'high' | 'medium' | 'low';
+      size: 'full' | 'half';
+    }>;
+  }>;
+}
+```
+</CodeGroup>
+
+</Expandable>
+
+## Notifications and Reminders
+
+Set up reminders to manage ADHD challenges like time blindness.
+
+<Steps>
+  <Step title="Enable Notifications" icon="bell">
+    Go to `Settings > Notifications`.
+
+    Toggle `Push Notifications` and `Email Alerts` on.
+  </Step>
+  <Step title="Set Reminders" icon="clock">
+    Add rules like `Remind 15 minutes before due` or `Break every 25 minutes` for Pomodoro.
+  </Step>
+  <Step title="Test Setup" icon="play">
+    Trigger a test notification to verify.
+  </Step>
+</Steps>
+
+| Notification Type | Frequency Options | Platforms |
+|-------------------|-------------------|-----------|
+| Task Due          | 5m, 15m, 1h       | Web, Mobile |
+| Breaks            | Custom intervals  | Mobile only |
+| Team Mentions     | Instant           | All       |
+
+## Communication Channels
+
+Connect Loz Turner to your preferred tools for updates with peers.
+
+<Tabs>
+  <Tab title="Email" icon="mail">
+    Enter your SMTP details.
+
+    ```json
+    {
+      "email": {
+        "smtp": "smtp.gmail.com",
+        "port": 587,
+        "user": "your.email@gmail.com"
+      }
+    }
+    ```
+  </Tab>
+  <Tab title="Slack" icon="message-circle">
+    Add webhook URL.
+
+    <ParamField header="X-Slack-Webhook" param-type="string" required="true">
+      Paste your Slack incoming webhook.
+    </ParamField>
+  </Tab>
+  <Tab title="Microsoft Teams" icon="users">
+    Use Graph API token.
+
+    <Callout kind="alert">
+      Ensure `{ACCESS_TOKEN}` has `channelMessage.send` permission.
+    </Callout>
+  </Tab>
+</Tabs>
+
+## ADHD Assistance Features
+
+Personalize focus aids like body doubling timers and decision prompts.
+
+<ExpandableGroup>
+  <Expandable title="Pomodoro Timer">
+    Set work sessions to `25 minutes` with `5-minute` breaks. Enable voice prompts for transitions.
+  </Expandable>
+  <Expandable title="Decision Helper">
+    Configure prompts like `Pros? Cons? Alternatives?` for task reviews.
+  </Expandable>
+</ExpandableGroup>
+
+<CodeGroup tabs="Web Config,API Endpoint">
+```javascript
+// Web app config
+window.lozTurnerConfig = {
+  adhd: {
+    pomodoro: { work: 25, break: 5 },
+    prompts: ['What are the next steps?']
+  }
+};
+```
+
+```bash
+curl -X POST /api/adhd/config \
+  -H "Authorization: Bearer {YOUR_TOKEN}" \
+  -d '{
+    "pomodoro": {"work": 25, "break": 5},
+    "decisionPrompts": ["Prioritize?", "Delegate?"]
+  }'
+```
+</CodeGroup>

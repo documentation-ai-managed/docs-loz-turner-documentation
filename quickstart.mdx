@@ -1,0 +1,161 @@
+---
+title: Quickstart Guide
+description: Get up and running with Loz Turner by setting up your account and building your first dashboard for daily task management.
+---
+
+## Overview
+
+Loz Turner helps you manage daily tasks, visualize data, and make decisions as a planning manager. Focus on ADHD-friendly dashboards for communication with peers and companies. Complete setup in under 5 minutes.
+
+<Callout kind="tip">
+  Use your brand color `{#3B82F6}` for custom dashboard themes.
+</Callout>
+
+## Create Account and Log In
+
+Follow these steps to access Loz Turner.
+
+<Steps>
+  <Step title="Visit Loz Turner" icon="globe">
+    Open your browser and go to `https://lozturner.app`.
+
+    Create a free account with your email or sign in via Google.
+  </Step>
+
+  <Step title="Verify Email" icon="mail">
+    Check your inbox for a verification link from Loz Turner.
+
+    Click the link to activate your account. This enables dashboard sharing.
+  </Step>
+
+  <Step title="Log In" icon="log-in">
+    Return to the site and enter your credentials.
+
+    Enable two-factor authentication for secure access to task data.
+  </Step>
+</Steps>
+
+## Initial Dashboard Setup
+
+Build your first dashboard for daily task planning.
+
+<Tabs>
+  <Tab title="Web App" icon="globe">
+    After login, select **New Dashboard**.
+
+    Name it `Daily Tasks` and choose the `{#3B82F6}` theme.
+
+    Add widgets:
+    1. Task list
+    2. Priority chart
+    3. Communication log
+  </Tab>
+
+  <Tab title="Desktop App" icon="monitor">
+    Download from the dashboard page.
+
+    ```bash
+    # macOS
+    brew install --cask loz-turner
+    ```
+
+    ```bash
+    # Windows
+    winget install LozTurner.App
+    ```
+
+    Launch and sync your web account.
+  </Tab>
+</Tabs>
+
+## Add Your First Tasks and Visualizations
+
+Populate your dashboard with realistic data.
+
+Use the API to integrate tasks programmatically.
+
+<CodeGroup tabs="JavaScript,Python">
+  ```javascript
+  const response = await fetch('https://api.lozturner.app/v1/tasks', {
+    method: 'POST',
+    headers: { 'Authorization': `Bearer ${YOUR_API_KEY}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      title: 'Review Q4 projections',
+      priority: 'high',
+      dueDate: '2024-12-15',
+      assignee: 'team@company.com'
+    })
+  });
+  const task = await response.json();
+  console.log(`Added task ID: ${task.id}`);
+  ```
+
+  ```python
+  import requests
+
+  headers = {
+      'Authorization': f'Bearer {YOUR_API_KEY}',
+      'Content-Type': 'application/json'
+  }
+  data = {
+      'title': 'Schedule peer meeting',
+      'priority': 'medium',
+      'dueDate': '2024-12-10',
+      'assignee': 'peers@partner.com'
+  }
+  response = requests.post('https://api.lozturner.app/v1/tasks', json=data, headers=headers)
+  task = response.json()
+  print(f'Added task ID: {task["id"]}')
+  ```
+</CodeGroup>
+
+<ParamField path="tasks" param-type="POST" required="true">
+  Endpoint to create tasks. Replace `{YOUR_API_KEY}` with your token from settings.
+</ParamField>
+
+<ParamField query="visualize" param-type="boolean" required="false">
+  Set to `true` for auto-generated charts.
+</ParamField>
+
+## Visualize Task Data
+
+Your dashboard now shows:
+- Pie chart of priorities
+- Timeline for due dates
+- Peer communication heatmap
+
+<Callout kind="info">
+  Refresh the page after API calls to see updates in `<100ms`.
+</Callout>
+
+## Next Steps
+
+Explore more features.
+
+<Columns cols={3}>
+  <Card title="Advanced Analytics" icon="bar-chart-3" href="/docs/analytics">
+    Dive into decision-making visualizations.
+  </Card>
+
+  <Card title="Team Collaboration" icon="users" href="/docs/collaboration">
+    Share dashboards with companies.
+  </Card>
+
+  <Card title="Custom Integrations" icon="plug" href="/docs/integrations">
+    Connect to your tools.
+  </Card>
+</Columns>
+
+<Expandable title="Troubleshooting Common Issues" default-open="false">
+
+If login fails:
+
+| Issue | Solution |
+|-------|----------|
+| Email not verified | Check spam folder |
+| Invalid API key | Regenerate in settings |
+| Dashboard blank | Clear browser cache |
+
+</Expandable>
+
+Congratulations! You have a working Loz Turner dashboard for daily task management.
